@@ -4,14 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchComponent } from './right-section/navbar/search/search.component';
-import { CarCardComponent } from './right-section/main-section/car-card/car-card.component';
+import { SearchComponent } from './search/search.component';
+import { CarCardComponent } from './car-card/car-card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SelectionButtonComponent } from './sidebar/selection-button/selection-button.component';
-import { RightSectionComponent } from './right-section/right-section.component';
-import { NavbarComponent } from './right-section/navbar/navbar.component';
-import { InfoSectionComponent } from './right-section/navbar/info-section/info-section.component';
-import { MainSectionComponent } from './right-section/main-section/main-section.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +15,7 @@ import { MainSectionComponent } from './right-section/main-section/main-section.
     SearchComponent,
     CarCardComponent,
     SidebarComponent,
-    SelectionButtonComponent,
-    RightSectionComponent,
-    NavbarComponent,
-    InfoSectionComponent,
-    MainSectionComponent,
+    SelectionButtonComponent
   ],
   imports: [
     BrowserModule,

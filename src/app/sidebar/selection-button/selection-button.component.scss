@@ -3,7 +3,6 @@
     column-gap: 15px;
     padding: 10px;
     align-items: center;
-    cursor: pointer;
 
     img {
         width: 20px;
@@ -26,26 +25,5 @@
     &:hover {
         background-color: #F3F5F8;
         border-radius: 14px;
-    }
-}
-
-@media (max-width: 900px) {
-    .selectionWrapper {
-        transition: 0.3s;
-    }
-}
-
-@media (max-width: 380px) {
-    .selectionWrapper {
-        .textWrapper {
-            span {
-                font-size: 0.7rem;
-            }
-        }
-
-        img {
-            width: 16px;
-            height: 16px;
-        }
     }
 }
