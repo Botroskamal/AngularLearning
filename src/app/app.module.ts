@@ -12,6 +12,7 @@ import { RightSectionComponent } from './right-section/right-section.component';
 import { NavbarComponent } from './right-section/navbar/navbar.component';
 import { InfoSectionComponent } from './right-section/navbar/info-section/info-section.component';
 import { MainSectionComponent } from './right-section/main-section/main-section.component';
+import { FilterComponent } from './right-section/main-section/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MainSectionComponent } from './right-section/main-section/main-section.
     NavbarComponent,
     InfoSectionComponent,
     MainSectionComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

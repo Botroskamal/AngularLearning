@@ -3,7 +3,7 @@
         <button (click)="menuBtnClicked()" class="burger-menu">
             <strong>&#9776;</strong>
         </button>
-        <app-search></app-search>
+        <app-search (carName)="onNameSearch($event)"></app-search>
     </div>
     <app-info-section></app-info-section>
 </div>

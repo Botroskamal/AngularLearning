@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Cars } from './cars.model';
 
@@ -8,5 +8,11 @@ import { Cars } from './cars.model';
   styleUrls: ['./main-section.component.scss']
 })
 export class MainSectionComponent {
+  @Input() carName: string;
+
+  constructor() {
+    this.carName = '';
+  }
+
   cars = Cars;
 }

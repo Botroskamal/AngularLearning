@@ -27,5 +27,7 @@
     </div>
 </div>
 <div class="cardsSection">
-    <app-car-card *ngFor="let car of cars" [carData]="car"></app-car-card>
+    <ng-container *ngFor="let car of cars">
+        <app-car-card *ngIf="car.name.includes(carName) || carName ===''" [carData]="car"></app-car-card>
+    </ng-container>
 </div>
