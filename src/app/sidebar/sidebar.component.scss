@@ -1,0 +1,32 @@
+.sidebar-head {
+    display: flex;
+    column-gap: 15px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    span {
+        font-family: sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        color: #5F6165;
+    }
+}
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 400px;
+
+    .big-menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .small-menu {
+        display: flex;
+        flex-direction: column;
+    }
+}

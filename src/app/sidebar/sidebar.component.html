@@ -1,0 +1,19 @@
+<div class="sidebar-head">
+    <div class="image">
+        <img src="assets/images/sidebar/Motiv.png">
+    </div>
+    <div class="website-name">
+        <span>Motiv.</span>
+    </div>
+</div>
+
+<div class="main-menu">
+    <div class="big-menu">
+        <app-selection-button *ngFor="let selection of bigMenuSelections" [selectionData]="selection">
+        </app-selection-button>
+    </div>
+    <div class="small-menu">
+        <app-selection-button *ngFor="let selection of smallMenuSelections" [selectionData]="selection">
+        </app-selection-button>
+    </div>
+</div>
