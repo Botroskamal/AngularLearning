@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,4 +20,11 @@ export class SidebarComponent {
     { selectionText: 'Settings', imageSource: 'assets/images/sidebar/Settings.png' },
     { selectionText: 'Sign Out', imageSource: 'assets/images/sidebar/SignOut.png' },
   ]
+  @Output() closeButtonClicked = new EventEmitter<{ btnClicked: boolean }>();
+
+  constructor() { }
+
+  onCloseBtnClicked() {
+    this.closeButtonClicked.emit({ btnClicked: false });
+  }
 }
