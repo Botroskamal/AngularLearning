@@ -7,14 +7,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchComponent {
   inputValue: string;
-  @Output() carName = new EventEmitter<{ name: string }>();
+  @Output() carName = new EventEmitter<string>();
 
   constructor() {
     this.inputValue = '';
   }
 
   onTyping(event: Event) {
-    console.log("heloooooooooooooo" + this.inputValue);
-    this.carName.emit({ name: this.inputValue });
+    this.carName.emit(this.inputValue);
   }
 }

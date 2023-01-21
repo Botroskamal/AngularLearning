@@ -6,17 +6,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  @Output() menuClickedFromNavbar = new EventEmitter<{ btnClicked: boolean }>();
-  @Output() carName = new EventEmitter<{ name: string }>();
+  @Output() menuClickedFromNavbar = new EventEmitter<boolean>();
+  @Output() carName = new EventEmitter<string>();
   constructor() { }
 
   menuBtnClicked() {
-    this.menuClickedFromNavbar.emit({ btnClicked: true });
+    this.menuClickedFromNavbar.emit(true);
   }
 
-  onNameSearch(nameEvent: { name: string }) {
+  onNameSearch(nameEvent: string) {
     this.carName.emit(nameEvent);
-    console.log(nameEvent);
   }
 
 }

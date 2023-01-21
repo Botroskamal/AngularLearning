@@ -6,18 +6,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./right-section.component.scss']
 })
 export class RightSectionComponent {
-  @Output() btnClickedFromSection = new EventEmitter<{ btnClicked: boolean }>();
+  @Output() btnClickedFromSection = new EventEmitter<boolean>();
   carName: string;
 
   constructor() {
     this.carName = '';
   }
 
-  onMenuClicked(buttonClicked: { btnClicked: boolean }) {
+  onMenuClicked(buttonClicked: boolean) {
     this.btnClickedFromSection.emit(buttonClicked);
   }
 
-  getCarName(carName: { name: string }) {
-    this.carName = carName.name;
+  getCarName(carName: string) {
+    this.carName = carName;
   }
 }

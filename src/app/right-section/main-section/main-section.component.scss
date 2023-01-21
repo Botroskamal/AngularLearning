@@ -7,7 +7,7 @@
 
 .cardsSection {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 0.5fr));
     column-gap: 24px;
     row-gap: 24px;
 }

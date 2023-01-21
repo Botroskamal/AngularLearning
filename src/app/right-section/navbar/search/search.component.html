@@ -2,7 +2,7 @@
     <div class="search">
         <img src="assets/images/navbar/Search.png">
         <form>
-            <input [(ngModel)]="inputValue" [ngModelOptions]="{ standalone: true }" (input)="onTyping($event)"
+            <input #inputRef [(ngModel)]="inputValue" [ngModelOptions]="{ standalone: true }" (input)="onTyping($event)"
                 type="text" placeholder="Search or type">
         </form>
     </div>

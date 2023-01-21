@@ -22,11 +22,11 @@ export class AppComponent {
     this.getScreenHeight = window.innerHeight;
   }
 
-  getOpenButtonStatus(buttonClicked: { btnClicked: boolean }) {
-    this.btnClicked = buttonClicked.btnClicked;
+  getOpenButtonStatus(buttonClicked: boolean) {
+    this.btnClicked = buttonClicked;
   }
 
-  getCloseButtonStatus(buttonClicked: { btnClicked: boolean }) {
-    this.btnClicked = buttonClicked.btnClicked;
+  getCloseButtonStatus(buttonClicked: boolean) {
+    this.btnClicked = buttonClicked;
   }
 }
