@@ -7,6 +7,12 @@
         align-items: center;
         column-gap: 16px;
 
+        .radioBtns {
+            display: flex;
+            justify-content: space-between;
+            width: 200px
+        }
+
         .filter-menu {
             background-color: #FFFFFF;
             border-radius: 22.5px;

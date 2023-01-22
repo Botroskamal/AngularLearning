@@ -14,7 +14,7 @@ import { InfoSectionComponent } from './right-section/navbar/info-section/info-s
 import { MainSectionComponent } from './right-section/main-section/main-section.component';
 import { FilterComponent } from './right-section/main-section/filter/filter.component';
 import { HighlightDirective } from './directives/highlight.directive';
-import { BetterHighlightDirective } from './directives/better-highlight.directive';
+import { ButtonHighlightDirective } from './directives/button-highlight.directive';
 import { CustomIfDirective } from './directives/custom-if.directive';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { CustomIfDirective } from './directives/custom-if.directive';
     FilterComponent,
 
     HighlightDirective,
-    BetterHighlightDirective,
+    ButtonHighlightDirective,
     CustomIfDirective
   ],
   imports: [
