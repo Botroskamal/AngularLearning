@@ -14,11 +14,13 @@
 
 <div class="main-menu">
     <div class="big-menu">
-        <app-selection-button *ngFor="let selection of bigMenuSelections" [selectionData]="selection">
+        <app-selection-button [otherClicked]="buttonName" (clickedText)="getClickedButton($event)"
+            *ngFor="let selection of bigMenuSelections" [selectionData]="selection">
         </app-selection-button>
     </div>
     <div class="small-menu">
-        <app-selection-button *ngFor="let selection of smallMenuSelections" [selectionData]="selection">
+        <app-selection-button [otherClicked]="buttonName" (clickedText)="getClickedButton($event)"
+            *ngFor="let selection of smallMenuSelections" [selectionData]="selection">
         </app-selection-button>
     </div>
 </div>

@@ -22,9 +22,17 @@ export class SidebarComponent {
   ]
   @Output() closeButtonClicked = new EventEmitter<boolean>();
 
-  constructor() { }
+  buttonName: string;
+
+  constructor() {
+    this.buttonName = '';
+  }
 
   onCloseBtnClicked() {
     this.closeButtonClicked.emit(false);
+  }
+
+  getClickedButton(buttonName: string) {
+    this.buttonName = buttonName;
   }
 }

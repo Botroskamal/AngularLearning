@@ -13,6 +13,9 @@ import { NavbarComponent } from './right-section/navbar/navbar.component';
 import { InfoSectionComponent } from './right-section/navbar/info-section/info-section.component';
 import { MainSectionComponent } from './right-section/main-section/main-section.component';
 import { FilterComponent } from './right-section/main-section/filter/filter.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { BetterHighlightDirective } from './directives/better-highlight.directive';
+import { CustomIfDirective } from './directives/custom-if.directive';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,10 @@ import { FilterComponent } from './right-section/main-section/filter/filter.comp
     InfoSectionComponent,
     MainSectionComponent,
     FilterComponent,
+
+    HighlightDirective,
+    BetterHighlightDirective,
+    CustomIfDirective
   ],
   imports: [
     BrowserModule,

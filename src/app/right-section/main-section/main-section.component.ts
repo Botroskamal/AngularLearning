@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Cars } from './cars.model';
 
@@ -7,9 +7,9 @@ import { Cars } from './cars.model';
   templateUrl: './main-section.component.html',
   styleUrls: ['./main-section.component.scss']
 })
-export class MainSectionComponent implements AfterViewInit {
+export class MainSectionComponent {
   @Input() carName: string;
-  @ViewChild('inputRef', { static: true }) inputRef: ElementRef;
+
   name: string;
   carStatus: string;
   carType: string;
@@ -20,18 +20,10 @@ export class MainSectionComponent implements AfterViewInit {
     this.carType = 'All';
   }
 
-  ngAfterViewInit(): void {
-    this.name = this.inputRef.nativeElement.value;
-  }
-
   cars = Cars;
 
-  getStatus(status: string) {
-    this.carStatus = status;
-    console.log(this.carStatus);
-  }
-  getType(type: string) {
-    this.carType = type;
-    console.log(this.carType);
+  getFilterSpecs(specs: { status: string, type: string }) {
+    this.carStatus = specs.status;
+    this.carType = specs.type;
   }
 }

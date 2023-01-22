@@ -1,11 +1,13 @@
 <div class='head-section'>
     <span>Booking</span>
 </div>
-<app-filter (status)="getStatus($event)" (type)="getType($event)"></app-filter>
+<app-filter (filterSpecs)="getFilterSpecs($event)"></app-filter>
 <div class="cardsSection">
     <ng-container *ngFor="let car of cars">
-        <app-car-card *ngIf="(car.name.includes(carName) || carName ==='') && 
-        ((carStatus === 'All' && carType === 'All') || car.status === carStatus || car.manufacturer === carType)"
+        <app-car-card
+            *appCustomIf="(car.name.includes(carName) || carName ==='') && 
+            ((carStatus === 'All' && carType === 'All') || (car.status === carStatus && carType === 'All') 
+            || (carStatus === 'All' && car.manufacturer === carType) || (car.status === carStatus && car.manufacturer === carType))"
             [carData]="car"></app-car-card>
     </ng-container>
 </div>

@@ -1,11 +1,11 @@
 <div class="filter">
     <div class="filterSpecs">
-        <select (change)="onChooseStatus($event)" class='filter-menu' name="status" id="carStatus">
+        <select (change)="onChangeFilter($event)" #statusSelect class='filter-menu' name="status" id="carStatus">
             <option value="All">All</option>
             <option value="New">New</option>
             <option value="Used">Used</option>
         </select>
-        <select (change)="onChooseType($event)" #typeSelect class='filter-menu' name="type" id="carType">
+        <select (change)="onChangeFilter($event)" #typeSelect class='filter-menu' name="type" id="carType">
             <option value="All">All</option>
             <option value="Toyota">Toyota</option>
             <option value="BMW">BMW</option>

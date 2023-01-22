@@ -29,6 +29,11 @@
     }
 }
 
+.selected {
+    background-color: #F3F5F8;
+    border-radius: 14px;
+}
+
 @media (max-width: 900px) {
     .selectionWrapper {
         transition: 0.3s;
