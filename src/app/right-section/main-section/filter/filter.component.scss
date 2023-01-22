@@ -10,7 +10,16 @@
         .radioBtns {
             display: flex;
             justify-content: space-between;
-            width: 200px
+            width: 200px;
+
+            .Btn {
+                padding: 5px;
+                border-radius: 15px;
+
+                label {
+                    padding: 2px;
+                }
+            }
         }
 
         .filter-menu {
