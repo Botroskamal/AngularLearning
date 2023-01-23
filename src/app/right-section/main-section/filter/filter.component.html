@@ -1,10 +1,20 @@
 <div class="filter">
     <div class="filterSpecs">
-        <select (change)="onChangeFilter($event)" #statusSelect class='filter-menu' name="status" id="carStatus">
-            <option value="All">All</option>
-            <option value="New">New</option>
-            <option value="Used">Used</option>
-        </select>
+        <div class="radioBtns">
+            <div class="Btn">
+                <input (input)="onChangeRadio($event)" checked="checked" type="radio" name="status" id="All"
+                    value="All">
+                <label for="All">All</label>
+            </div>
+            <div class="Btn">
+                <input (input)="onChangeRadio($event)" type="radio" name="status" id="New" value="New">
+                <label for="New">New</label>
+            </div>
+            <div class="Btn">
+                <input (input)="onChangeRadio($event)" type="radio" name="status" id="Used" value="Used">
+                <label for="Used">Used</label>
+            </div>
+        </div>
         <select (change)="onChangeFilter($event)" #typeSelect class='filter-menu' name="type" id="carType">
             <option value="All">All</option>
             <option value="Toyota">Toyota</option>
