@@ -17,6 +17,13 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { ButtonHighlightDirective } from './directives/button-highlight.directive';
 import { CustomIfDirective } from './directives/custom-if.directive';
 import { NameHighlightDirective } from './directives/name-highlight.directive';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'signin', component: SigninComponent }
+]
 
 @NgModule({
   declarations: [
@@ -34,12 +41,15 @@ import { NameHighlightDirective } from './directives/name-highlight.directive';
     HighlightDirective,
     ButtonHighlightDirective,
     CustomIfDirective,
-    NameHighlightDirective
+    NameHighlightDirective,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
