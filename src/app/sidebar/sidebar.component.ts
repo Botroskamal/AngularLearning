@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ButtonService } from '../services/button.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,16 +21,14 @@ export class SidebarComponent {
     { selectionText: 'Settings', imageSource: 'assets/images/sidebar/Settings.png' },
     { selectionText: 'Sign Out', imageSource: 'assets/images/sidebar/SignOut.png' },
   ]
-  @Output() closeButtonClicked = new EventEmitter<boolean>();
-
   buttonName: string;
 
-  constructor() {
+  constructor(private buttonService: ButtonService) {
     this.buttonName = '';
   }
 
   onCloseBtnClicked() {
-    this.closeButtonClicked.emit(false);
+    this.buttonService.buttonClicked.emit(false);
   }
 
   getClickedButton(buttonName: string) {

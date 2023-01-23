@@ -1,7 +1,8 @@
-export class search {
-    seacrInputValue: string;
+import { EventEmitter, Injectable } from "@angular/core";
+@Injectable({
+    providedIn: 'root'
+})
 
-    getSearchValue() {
-
-    }
+export class searchService {
+    valueUpdated = new EventEmitter<string>();
 }

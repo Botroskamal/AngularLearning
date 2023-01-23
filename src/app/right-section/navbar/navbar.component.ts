@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ButtonService } from 'src/app/services/button.service';
+import { searchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,16 +8,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  @Output() menuClickedFromNavbar = new EventEmitter<boolean>();
-  @Output() carName = new EventEmitter<string>();
-  constructor() { }
+
+  constructor(private searchService: searchService, private buttonService: ButtonService) { }
 
   menuBtnClicked() {
-    this.menuClickedFromNavbar.emit(true);
+    this.buttonService.buttonClicked.emit(true);
   }
-
-  onNameSearch(nameEvent: string) {
-    this.carName.emit(nameEvent);
-  }
-
 }

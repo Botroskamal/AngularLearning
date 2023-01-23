@@ -1,5 +1,4 @@
 <div class="main">
-    <app-sidebar (closeButtonClicked)="getCloseButtonStatus($event)"
-        [ngStyle]="{width: getScreenWidth < 900 ? btnClicked ? '200px' : '0px' : ''}"></app-sidebar>
-    <app-right-section (btnClickedFromSection)="getOpenButtonStatus($event)"></app-right-section>
+    <app-sidebar [ngStyle]="{width: getScreenWidth < 900 ? btnClicked ? '200px' : '0px' : ''}"></app-sidebar>
+    <app-right-section></app-right-section>
 </div>

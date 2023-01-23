@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { searchService } from '../services/search.service';
 
 @Component({
   selector: 'app-right-section',
@@ -6,18 +7,5 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./right-section.component.scss']
 })
 export class RightSectionComponent {
-  @Output() btnClickedFromSection = new EventEmitter<boolean>();
-  carName: string;
-
-  constructor() {
-    this.carName = '';
-  }
-
-  onMenuClicked(buttonClicked: boolean) {
-    this.btnClickedFromSection.emit(buttonClicked);
-  }
-
-  getCarName(carName: string) {
-    this.carName = carName;
-  }
+  constructor(private searchService: searchService) { }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { searchService } from 'src/app/services/search.service';
 
 import { Cars } from './cars.model';
 
@@ -8,16 +9,16 @@ import { Cars } from './cars.model';
   styleUrls: ['./main-section.component.scss']
 })
 export class MainSectionComponent {
-  @Input() carName: string;
-
-  name: string;
+  searchValue: string;
   carStatus: string;
   carType: string;
 
-  constructor() {
-    this.carName = '';
+  constructor(private searchService: searchService) {
     this.carStatus = 'All';
     this.carType = 'All';
+    this.searchService.valueUpdated.subscribe(
+      (value: string) => { this.searchValue = value }
+    )
   }
 
   cars = Cars;

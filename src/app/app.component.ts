@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ButtonService } from './services/button.service';
 
 @Component({
   selector: 'app-root',
@@ -12,21 +13,16 @@ export class AppComponent {
   getScreenHeight: any;
   btnClicked: boolean = false;
 
-  constructor() {
+  constructor(private buttonService: ButtonService) {
     this.selectionTitles = ['Dashboard', 'Assets', 'Booking', 'Sell Cars', 'But Cars', 'Services', 'Calender', 'Messages', 'Settings', 'Sign out'];
+    this.buttonService.buttonClicked.subscribe(
+      (isClicked: boolean) => { this.btnClicked = isClicked }
+    )
   }
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
-  }
-
-  getOpenButtonStatus(buttonClicked: boolean) {
-    this.btnClicked = buttonClicked;
-  }
-
-  getCloseButtonStatus(buttonClicked: boolean) {
-    this.btnClicked = buttonClicked;
   }
 }
