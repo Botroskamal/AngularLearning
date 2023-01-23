@@ -1,16 +1,16 @@
 <div class="filter">
     <div class="filterSpecs">
         <div class="radioBtns">
-            <div appButtonHighlight [buttonValue]="radioBtnValue" class="Btn">
+            <div class="Btn">
                 <input (input)="onChangeRadio($event)" checked="checked" type="radio" name="status" id="All"
                     value="All">
                 <label for="All">All</label>
             </div>
-            <div appButtonHighlight [buttonValue]="radioBtnValue" class="Btn">
+            <div class="Btn">
                 <input (input)="onChangeRadio($event)" type="radio" name="status" id="New" value="New">
                 <label for="New">New</label>
             </div>
-            <div appButtonHighlight [buttonValue]="radioBtnValue" class="Btn">
+            <div class="Btn">
                 <input (input)="onChangeRadio($event)" type="radio" name="status" id="Used" value="Used">
                 <label for="Used">Used</label>
             </div>

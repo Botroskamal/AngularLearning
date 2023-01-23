@@ -16,6 +16,7 @@ import { FilterComponent } from './right-section/main-section/filter/filter.comp
 import { HighlightDirective } from './directives/highlight.directive';
 import { ButtonHighlightDirective } from './directives/button-highlight.directive';
 import { CustomIfDirective } from './directives/custom-if.directive';
+import { NameHighlightDirective } from './directives/name-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CustomIfDirective } from './directives/custom-if.directive';
 
     HighlightDirective,
     ButtonHighlightDirective,
-    CustomIfDirective
+    CustomIfDirective,
+    NameHighlightDirective
   ],
   imports: [
     BrowserModule,
