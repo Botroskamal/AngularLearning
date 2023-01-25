@@ -19,11 +19,8 @@ import { CustomIfDirective } from './directives/custom-if.directive';
 import { NameHighlightDirective } from './directives/name-highlight.directive';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-const appRoutes: Routes = [
-  { path: 'signin', component: SigninComponent }
-]
 
 @NgModule({
   declarations: [
@@ -37,6 +34,7 @@ const appRoutes: Routes = [
     InfoSectionComponent,
     MainSectionComponent,
     FilterComponent,
+    DashboardComponent,
 
     HighlightDirective,
     ButtonHighlightDirective,
@@ -48,8 +46,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,17 +3,17 @@
         <span class='head'>Get's started</span>
         <div>
             <span>Don't have an account?</span>
-            <a class='link' to='/signup'> Sign up</a>
+            <a class='link' routerLink="/signup"> Sign up</a>
         </div>
     </div>
     <div class='second-item'>
         <div class='third-party-btns'>
             <button class="auth-btn google">
-                <img source="assets/images/Auths/GoogleLogo.png" />
+                <img src="assets/images/Auths/GoogleLogo.png" />
                 <span>Sign in with Google</span>
             </button>
             <button class="auth-btn facebook">
-                <img source="assets/images/Auths/FacebookLogo.png" />
+                <img src="assets/images/Auths/FacebookLogo.png" />
                 <span>Sign in With Facebook</span>
             </button>
         </div>
@@ -47,7 +47,7 @@
                 </div>
                 <a class='link'>Forget your password?</a>
             </div>
-            <button type="submit" class='signin-btn'>Sign in</button>
+            <button (click)="onSignIn()" type="submit" class='signin-btn'>Sign in</button>
         </form>
     </div>
 </div>

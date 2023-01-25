@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-selection-button',
@@ -14,7 +15,7 @@ export class SelectionButtonComponent implements AfterViewInit {
   chosenText: string;
   inText: string;
 
-  constructor() {
+  constructor(private router: Router) {
     this.selectionData = { selectionText: '', imageSource: '' };
     this.inText = '';
     this.chosenText = '';
@@ -28,5 +29,9 @@ export class SelectionButtonComponent implements AfterViewInit {
   getInnerText(event: Event) {
     this.chosenText = this.inText;
     this.clickedText.emit(this.chosenText);
+  }
+
+  onChoosePage() {
+    this.router.navigate([`/${this.inText.toLowerCase()}`]);
   }
 }

@@ -1,5 +1,5 @@
-<div (click)="getInnerText($event)" class="selectionWrapper"
-    [ngClass]="{'selected': inText === chosenText && otherClicked === chosenText && inText !== 'Sign Out'}">
+<div (click)="onChoosePage()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    (click)="getInnerText($event)" class="selectionWrapper">
     <div class="imageWrapper">
         <img [src]="selectionData.imageSource">
     </div>
