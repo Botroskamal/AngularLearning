@@ -27,25 +27,29 @@
                 <div class='first-name-sec'>
                     <span>First Name</span>
                     <div class='auth-in-data'>
-                        <input name='firstName' class='auth-in' type='text' placeholder='Enter your First Name' />
+                        <input [(ngModel)]="firstName" name='firstName' class='auth-in' type='text'
+                            placeholder='Enter your First Name' />
                     </div>
                 </div>
                 <div class='last-name-sec'>
                     <span>Last Name</span>
                     <div class='auth-in-data'>
-                        <input name='lastName' class='auth-in' type='text' placeholder='Enter your Last Name' />
+                        <input [(ngModel)]="lastName" name='lastName' class='auth-in' type='text'
+                            placeholder='Enter your Last Name' />
                     </div>
                 </div>
                 <div class='email-sec'>
                     <span>Email</span>
                     <div class='auth-in-data'>
-                        <input name='email' class='auth-in' type='email' placeholder='Enter your email' />
+                        <input [(ngModel)]="email" name='email' class='auth-in' type='email'
+                            placeholder='Enter your email' />
                     </div>
                 </div>
                 <div class='password-sec'>
                     <span>Password</span>
                     <div class='auth-in-data'>
-                        <input name='password' class='auth-in' type='password' placeholder='Enter your Password' />
+                        <input [(ngModel)]="password" name='password' class='auth-in' type='password'
+                            placeholder='Enter your Password' />
                         <a>
                             <img src="assets/images/Auths/passVisibilty.png" />
                         </a>
