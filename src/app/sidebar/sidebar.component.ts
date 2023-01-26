@@ -2,36 +2,36 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { ButtonService } from '../services/button.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+    selector: 'app-sidebar',
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  bigMenuSelections = [
-    { selectionText: 'Dashboard', imageSource: 'assets/images/sidebar/Dashboard.png' },
-    { selectionText: 'Assets', imageSource: 'assets/images/sidebar/Assets.png' },
-    { selectionText: 'Booking', imageSource: 'assets/images/sidebar/Booking.png' },
-    { selectionText: 'Sell Cars', imageSource: 'assets/images/sidebar/SellCars.png' },
-    { selectionText: 'Buy Cars', imageSource: 'assets/images/sidebar/BuyCars.png' },
-    { selectionText: 'Services', imageSource: 'assets/images/sidebar/Services.png' },
-    { selectionText: 'Calender', imageSource: 'assets/images/sidebar/Calender.png' },
-    { selectionText: 'Messages', imageSource: 'assets/images/sidebar/Messages.png' },
-  ];
-  smallMenuSelections = [
-    { selectionText: 'Settings', imageSource: 'assets/images/sidebar/Settings.png' },
-    { selectionText: 'Sign Out', imageSource: 'assets/images/sidebar/SignOut.png' },
-  ]
-  buttonName: string;
+    bigMenuSelections = [
+        { selectionText: 'Dashboard', imageSource: 'assets/images/sidebar/Dashboard.png' },
+        { selectionText: 'Assets', imageSource: 'assets/images/sidebar/Assets.png' },
+        { selectionText: 'Booking', imageSource: 'assets/images/sidebar/Booking.png' },
+        { selectionText: 'Sell Cars', imageSource: 'assets/images/sidebar/SellCars.png' },
+        { selectionText: 'Buy Cars', imageSource: 'assets/images/sidebar/BuyCars.png' },
+        { selectionText: 'Services', imageSource: 'assets/images/sidebar/Services.png' },
+        { selectionText: 'Calender', imageSource: 'assets/images/sidebar/Calender.png' },
+        { selectionText: 'Messages', imageSource: 'assets/images/sidebar/Messages.png' },
+    ];
+    smallMenuSelections = [
+        { selectionText: 'Settings', imageSource: 'assets/images/sidebar/Settings.png' },
+        { selectionText: 'Sign Out', imageSource: 'assets/images/sidebar/SignOut.png' },
+    ]
+    buttonName: string;
 
-  constructor(private buttonService: ButtonService) {
-    this.buttonName = '';
-  }
+    constructor(private buttonService: ButtonService) {
+        this.buttonName = '';
+    }
 
-  onCloseBtnClicked() {
-    this.buttonService.buttonClicked.emit(false);
-  }
+    onCloseBtnClicked() {
+        this.buttonService.buttonClicked.emit(false);
+    }
 
-  getClickedButton(buttonName: string) {
-    this.buttonName = buttonName;
-  }
+    getClickedButton(buttonName: string) {
+        this.buttonName = buttonName;
+    }
 }

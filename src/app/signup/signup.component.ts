@@ -32,7 +32,7 @@ export class SignupComponent implements DoCheck, CanComponentDeactivate {
     }
   }
   ngDoCheck(): void {
-    console.log("ooooooooooooooooooooooooo")
-    console.log(this.form);
+    // console.log("ooooooooooooooooooooooooo")
+    // console.log(this.form);
   }
 }

@@ -1,1 +1,99 @@
-<p>form works!</p>
+<form class='form' #f="ngForm">
+    <div class='input-fields'>
+        <div *ngIf="formType === 'signup'" class='field'>
+            <span>First Name</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input #fName="ngModel" [(ngModel)]="firstName" name='firstName' class='auth-in' type='text'
+                        placeholder='Enter your First Name' required>
+                </div>
+                <span class="error" *ngIf="!fName.valid && fName.touched">please enter your first name</span>
+            </div>
+        </div>
+
+        <div *ngIf="formType === 'signup'" class='field'>
+            <span>Last Name</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input #lName="ngModel" [(ngModel)]="lastName" name='lastName' class='auth-in' type='text'
+                        placeholder='Enter your Last Name' required>
+                </div>
+                <span class="error" *ngIf="!lName.valid && lName.touched">please enter your last name</span>
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Email</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input #eml="ngModel" [(ngModel)]="email" name='email' class='auth-in' type='email'
+                        placeholder='Enter your email' required email>
+                </div>
+                <span class="error" *ngIf="!eml.valid && eml.touched">please enter your email</span>
+                <!-- <span class="error" *ngIf="!eml.">please enter a valid email</span> -->
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Password</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input #pass="ngModel" [(ngModel)]="password" name='passowrd' class='auth-in pass' type='password'
+                        placeholder='Enter your password' required>
+                    <!-- <a style="z-index: 1;">
+                        <img src="assets/images/Auths/passVisibilty.png" />
+                    </a> -->
+                </div>
+                <span class="error" *ngIf="!pass.valid && pass.touched">please enter your password</span>
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Confirm Password</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input #confirmPass="ngModel" [(ngModel)]="confirmedPassword" name='passowrd' class='auth-in pass'
+                        type='password' placeholder='Enter your confirmed password' required>
+                    <!-- <a>
+                        <img src="assets/images/Auths/passVisibilty.png" />
+                    </a> -->
+                </div>
+                <span class="error" *ngIf="!confirmPass.valid && confirmPass.touched">please enter your confirmed
+                    password</span>
+            </div>
+        </div>
+
+        <div *ngIf="formType === 'signup'" class='field'>
+            <span>Gender</span>
+            <div>
+                <label>
+                    <input ngModel type="radio" name="gender" value="Male" required>
+                    Male
+                </label>
+                <label>
+                    <input ngModel type="radio" name="gender" value="Female" required>
+                    Female
+                </label>
+            </div>
+        </div>
+
+        <div *ngIf="formType === 'signup'" class='field'>
+            <span>Age</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input #ageRef="ngModel" [(ngModel)]="age" name='lastName' class='auth-in' type='text'
+                        placeholder='Enter your age' required>
+                </div>
+                <span class="error" *ngIf="!ageRef.valid && ageRef.touched">please enter your age</span>
+            </div>
+        </div>
+    </div>
+    <div class='helper-sec'>
+        <div>
+            <input type="checkbox" />
+            <span>Remember me</span>
+        </div>
+        <a class='link'>Forget your password?</a>
+    </div>
+    <button type="submit" class='signup-btn' [disabled]="!f.valid">Sign up</button>
+</form>

@@ -22,52 +22,6 @@
             <span>or</span>
             <hr />
         </div>
-        <form class='signup-form' #f="ngForm">
-            <div class='input-fields'>
-                <div class='first-name-sec'>
-                    <span>First Name</span>
-                    <div class='auth-in-data'>
-                        <input #fName="ngModel" [(ngModel)]="firstName" name='firstName' class='auth-in' type='text'
-                            placeholder='Enter your First Name' required>
-                    </div>
-                    <span class="error" *ngIf="!fName.valid && fName.touched">please enter your first name</span>
-                </div>
-                <div class='last-name-sec'>
-                    <span>Last Name</span>
-                    <div class='auth-in-data'>
-                        <input #lName="ngModel" [(ngModel)]="lastName" name='lastName' class='auth-in' type='text'
-                            placeholder='Enter your Last Name' required>
-                    </div>
-                    <span class="error" *ngIf="!lName.valid && lName.touched">please enter your first name</span>
-                </div>
-                <div class='email-sec'>
-                    <span>Email</span>
-                    <div class='auth-in-data'>
-                        <input #eml="ngModel" [(ngModel)]="email" name='email' class='auth-in' type='email'
-                            placeholder='Enter your email' required email>
-                    </div>
-                    <span class="error" *ngIf="!eml.valid && eml.touched">please enter your first name</span>
-                </div>
-                <div class='password-sec'>
-                    <span>Password</span>
-                    <div class='auth-in-data'>
-                        <input #pass="ngModel" [(ngModel)]="password" name='password' class='auth-in' type='password'
-                            placeholder='Enter your Password' required>
-                        <a>
-                            <img src="assets/images/Auths/passVisibilty.png" />
-                        </a>
-                    </div>
-                    <span class="error" *ngIf="!pass.valid && pass.touched">please enter your first name</span>
-                </div>
-            </div>
-            <div class='helper-sec'>
-                <div>
-                    <input type="checkbox" />
-                    <span>Remember me</span>
-                </div>
-                <a class='link'>Forget your password?</a>
-            </div>
-            <button type="submit" class='signup-btn' [disabled]="!f.valid">Sign up</button>
-        </form>
+        <app-form [formType]="'signup'"></app-form>
     </div>
 </div>
