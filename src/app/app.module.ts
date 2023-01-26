@@ -21,6 +21,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CanDeactivateGaurd } from './signup/can-deactivate-guard.service';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CanDeactivateGaurd } from './signup/can-deactivate-guard.service';
     CustomIfDirective,
     NameHighlightDirective,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
