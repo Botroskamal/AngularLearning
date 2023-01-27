@@ -47,6 +47,12 @@
                 }
             }
 
+            .radioChoices {
+                display: flex;
+                justify-content: space-around;
+                width: 300px;
+            }
+
             .error {
                 color: #7C7C8D;
                 font-size: 12px;
