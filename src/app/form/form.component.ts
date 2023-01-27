@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
     selector: 'app-form',
@@ -18,6 +18,8 @@ export class FormComponent {
     gender: string;
     age: number;
 
+    errorMessage: string;
+
     constructor() {
         this.firstName = '';
         this.lastName = '';
@@ -25,5 +27,6 @@ export class FormComponent {
         this.password = '';
         this.confirmedPassword = '';
         this.gender = '';
+        this.errorMessage = 'please enter your ';
     }
 }

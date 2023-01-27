@@ -4,10 +4,10 @@
             <span>First Name</span>
             <div>
                 <div class='auth-in-data'>
-                    <input #fName="ngModel" [(ngModel)]="firstName" name='firstName' class='auth-in' type='text'
+                    <input #fName="ngModel" [(ngModel)]="firstName" name='first name' class='auth-in' type='text'
                         placeholder='Enter your First Name' required>
                 </div>
-                <span class="error" *ngIf="!fName.valid && fName.touched">please enter your first name</span>
+                <span class="error" *ngIf="!fName.valid && fName.touched">{{errorMessage}}first name</span>
             </div>
         </div>
 
@@ -15,7 +15,7 @@
             <span>Last Name</span>
             <div>
                 <div class='auth-in-data'>
-                    <input #lName="ngModel" [(ngModel)]="lastName" name='lastName' class='auth-in' type='text'
+                    <input #lName="ngModel" [(ngModel)]="lastName" name='last name' class='auth-in' type='text'
                         placeholder='Enter your Last Name' required>
                 </div>
                 <span class="error" *ngIf="!lName.valid && lName.touched">please enter your last name</span>
@@ -52,8 +52,8 @@
             <span>Confirm Password</span>
             <div>
                 <div class='auth-in-data'>
-                    <input #confirmPass="ngModel" [(ngModel)]="confirmedPassword" name='passowrd' class='auth-in pass'
-                        type='password' placeholder='Enter your confirmed password' required>
+                    <input #confirmPass="ngModel" [(ngModel)]="confirmedPassword" name='confirm passowrd'
+                        class='auth-in pass' type='password' placeholder='Enter your confirmed password' required>
                     <!-- <a>
                         <img src="assets/images/Auths/passVisibilty.png" />
                     </a> -->
@@ -81,10 +81,12 @@
             <span>Age</span>
             <div>
                 <div class='auth-in-data'>
-                    <input #ageRef="ngModel" [(ngModel)]="age" name='lastName' class='auth-in' type='text'
+                    <input #ageRef="ngModel" [(ngModel)]="age" name='age' class='auth-in' type='text'
                         placeholder='Enter your age' required>
                 </div>
                 <span class="error" *ngIf="!ageRef.valid && ageRef.touched">please enter your age</span>
+                <span class="error" *ngIf="ageRef.valid && ageRef.value <= 16 && ageRef.touched">Your age must be
+                    +16</span>
             </div>
         </div>
     </div>
