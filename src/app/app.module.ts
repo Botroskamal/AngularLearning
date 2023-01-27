@@ -22,6 +22,7 @@ import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CanDeactivateGaurd } from './signup/can-deactivate-guard.service';
 import { FormComponent } from './form/form.component';
+import { AccountsService } from './services/accounts.service';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { FormComponent } from './form/form.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [CanDeactivateGaurd],
+  providers: [CanDeactivateGaurd, AccountsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

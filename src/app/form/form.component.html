@@ -1,4 +1,4 @@
-<form class='form' #f="ngForm">
+<form class='form' #f="ngForm" (ngSubmit)="onSubmit()">
     <div class='input-fields'>
         <div *ngIf="formType === 'signup'" class='field'>
             <span>First Name</span>
@@ -67,11 +67,11 @@
             <span>Gender</span>
             <div>
                 <label>
-                    <input ngModel type="radio" name="gender" value="Male" required>
+                    <input [(ngModel)]="gender" type="radio" name="gender" value="Male" required>
                     Male
                 </label>
                 <label>
-                    <input ngModel type="radio" name="gender" value="Female" required>
+                    <input [(ngModel)]="gender" type="radio" name="gender" value="Female" required>
                     Female
                 </label>
             </div>
