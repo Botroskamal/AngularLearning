@@ -28,7 +28,7 @@ export class SidebarComponent {
     }
 
     onCloseBtnClicked() {
-        this.buttonService.buttonClicked.emit(false);
+        this.buttonService.buttonClicked.next(false);
     }
 
     getClickedButton(buttonName: string) {

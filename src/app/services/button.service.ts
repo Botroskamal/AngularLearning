@@ -1,4 +1,5 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,5 +8,5 @@ export class ButtonService {
 
   constructor() { }
 
-  buttonClicked = new EventEmitter<boolean>();
+  buttonClicked = new Subject<boolean>();
 }

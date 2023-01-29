@@ -1,8 +1,10 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
+import { Subject } from 'rxjs';
+
+
 @Injectable({
     providedIn: 'root'
 })
-
 export class searchService {
-    valueUpdated = new EventEmitter<string>();
+    valueUpdated = new Subject<string>();
 }

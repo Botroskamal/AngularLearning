@@ -11,10 +11,10 @@ export class SearchComponent {
 
   constructor(private searchService: searchService) {
     this.inputValue = '';
-    this.searchService.valueUpdated.emit('');
+    this.searchService.valueUpdated.next('');
   }
 
   onTyping(event: Event) {
-    this.searchService.valueUpdated.emit(this.inputValue);
+    this.searchService.valueUpdated.next(this.inputValue);
   }
 }
