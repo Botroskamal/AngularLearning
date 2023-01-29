@@ -1,4 +1,4 @@
-import { Component, HostListener } from "@angular/core";
+import { Component, HostListener, OnInit } from "@angular/core";
 import { ButtonService } from "../services/button.service";
 
 @Component({
@@ -6,7 +6,7 @@ import { ButtonService } from "../services/button.service";
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
     selectionTitles: string[];
     getScreenWidth: any;
     getScreenHeight: any;
@@ -19,6 +19,10 @@ export class DashboardComponent {
         )
     }
 
+    ngOnInit(): void {
+        this.getScreenWidth = window.innerWidth;
+        this.getScreenHeight = window.innerHeight;
+    }
 
     @HostListener('window:resize', ['$event'])
     onWindowResize() {

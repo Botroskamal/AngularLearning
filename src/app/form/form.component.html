@@ -61,8 +61,10 @@
                     </a> -->
                 </div>
                 <span class="error"
-                    *ngIf="!form.get('confirm password').valid && form.get('confirm password').touched">please enter
-                    your confirmed
+                    *ngIf="!form.get('confirm password').valid && form.get('confirm password').touched && form.get('confirm password').errors['required']">please
+                    enter your confirmed password</span>
+                <span class="error" *ngIf="!form.get('confirm password').valid && form.get('confirm password').touched && 
+                form.get('confirm password').errors['passwordsDoesNotMatch']">Confirm password must match with
                     password</span>
             </div>
         </div>
@@ -89,14 +91,12 @@
                 </div>
                 <span class="error"
                     *ngIf="!form.get('age').valid && form.get('age').touched && form.get('age').errors['ageIsForbidden']">Your
-                    age
-                    must be
-                    +16</span>
+                    age must be +16
+                </span>
                 <span class="error"
-                    *ngIf="!form.get('age').valid && form.get('age').touched && form.get('age').errors['required']">please
-                    enter
-                    your
-                    age</span>
+                    *ngIf="!form.get('age').valid && form.get('age').touched && form.get('age').errors['required']">
+                    please enter your age
+                </span>
             </div>
         </div>
     </div>
@@ -107,7 +107,7 @@
         </div>
         <a class='link'>Forget your password?</a>
     </div>
-    <button type="submit" class='signup-btn'>Sign up</button>
+    <button type="submit" class='signup-btn' [disabled]="!form.valid">Sign up</button>
 </form>
 
 <!-- [disabled]="!form.valid" -->

@@ -39,9 +39,9 @@ export class FormComponent implements OnInit {
             'email': new FormControl(null, [Validators.required, Validators.email]),
             // 'password': new FormControl(null, [Validators.required, this.passwordValidation.bind(this)]),
             'password': new FormControl(null, Validators.required),
-            'confirm password': new FormControl(null, Validators.required),
+            'confirm password': new FormControl(null, [Validators.required, this.confirmPasswordValidation.bind(this)]),
             'gender': new FormControl(null, Validators.required),
-            'age': new FormControl(null, [Validators.required, this.ageValidation.bind(this)])
+            'age': new FormControl(null, [Validators.required, this.ageValidation])
         });
     }
 
@@ -70,6 +70,13 @@ export class FormComponent implements OnInit {
     //     return errors;
     // }
 
+    confirmPasswordValidation(control: FormControl): { [s: string]: boolean } {
+        if (this.form && control.value !== this.form.get('password').value && control.value !== null && control.value !== "") {
+            return { passwordsDoesNotMatch: true }
+        }
+        return null;
+    }
+
     ageValidation(control: FormControl): { [s: string]: boolean } {
         if (control.value <= 16 && control.value !== null && control.value !== "") {
             return { 'ageIsForbidden': true }
@@ -78,15 +85,15 @@ export class FormComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.form.controls);
-        // this.acountService.addAccount({
-        //     id: 1,
-        //     firstName: this.firstName,
-        //     lastName: this.lastName,
-        //     email: this.email,
-        //     password: this.password,
-        //     gender: this.gender,
-        //     age: this.age
-        // })
+        // console.log(this.form.controls);
+        this.acountService.addAccount({
+            id: Math.random(),
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            password: this.password,
+            gender: this.gender,
+            age: this.age
+        })
     }
 }

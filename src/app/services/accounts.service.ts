@@ -14,5 +14,6 @@ export class AccountsService {
 
     addAccount(account: account) {
         this.accounts.push(account);
+        console.log(this.accounts);
     }
 }
