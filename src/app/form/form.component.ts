@@ -37,38 +37,39 @@ export class FormComponent implements OnInit {
             'first name': new FormControl(null, Validators.required),
             'last name': new FormControl(null, Validators.required),
             'email': new FormControl(null, [Validators.required, Validators.email]),
-            // 'password': new FormControl(null, [Validators.required, this.passwordValidation.bind(this)]),
-            'password': new FormControl(null, Validators.required),
+            'password': new FormControl(null, [Validators.required, this.passwordValidation.bind(this)]),
+            // 'password': new FormControl(null, Validators.required),
             'confirm password': new FormControl(null, [Validators.required, this.confirmPasswordValidation.bind(this)]),
             'gender': new FormControl(null, Validators.required),
             'age': new FormControl(null, [Validators.required, this.ageValidation])
         });
     }
 
-    // passwordValidation(control: FormControl): {} {
-    //     const oneUpperCase = /(?=.*?[A-Z])/;
-    //     const oneLowerCase = /(?=.*?[a-z])/;
-    //     const oneDigit = /(?=.*?[0-9])/;
-    //     const specialChar = /(?=.*?[#?!@$%^&*-])/;
-    //     const minEight = /.{8,}/;
-    //     let errors: {} = {};
-    //     if (!oneUpperCase.test(control.value)) {
-    //         errors = { ...errors, 'noUpperCase': true }
-    //     }
-    //     if (!oneLowerCase.test(control.value)) {
-    //         errors = { ...errors, 'noLowerCase': true }
-    //     }
-    //     if (!oneDigit.test(control.value)) {
-    //         errors = { ...errors, 'noDigit': true }
-    //     }
-    //     if (!specialChar.test(control.value)) {
-    //         errors = { ...errors, 'noSpecialChar': true }
-    //     }
-    //     if (!minEight.test(control.value)) {
-    //         errors = { ...errors, 'lessThanEight': true }
-    //     }
-    //     return errors;
-    // }
+    passwordValidation(control: FormControl): {} {
+        const oneUpperCase = /(?=.*?[A-Z])/;
+        const oneLowerCase = /(?=.*?[a-z])/;
+        const oneDigit = /(?=.*?[0-9])/;
+        const specialChar = /(?=.*?[#?!@$%^&*-])/;
+        const minEight = /.{8,}/;
+        let errors: {} = {};
+        if (!oneUpperCase.test(control.value) && control.value !== "" && control.value !== null) {
+            errors = { ...errors, 'noUpperCase': true }
+        }
+        if (!oneLowerCase.test(control.value) && control.value !== "" && control.value !== null) {
+            errors = { ...errors, 'noLowerCase': true }
+        }
+        if (!oneDigit.test(control.value) && control.value !== "" && control.value !== null) {
+            errors = { ...errors, 'noDigit': true }
+        }
+        if (!specialChar.test(control.value) && control.value !== "" && control.value !== null) {
+            errors = { ...errors, 'noSpecialChar': true }
+        }
+        if (!minEight.test(control.value) && control.value !== "" && control.value !== null) {
+            errors = { ...errors, 'lessThanEight': true }
+        }
+        console.log(control.value);
+        return errors;
+    }
 
     confirmPasswordValidation(control: FormControl): { [s: string]: boolean } {
         if (this.form && control.value !== this.form.get('password').value && control.value !== null && control.value !== "") {
@@ -85,15 +86,14 @@ export class FormComponent implements OnInit {
     }
 
     onSubmit() {
-        // console.log(this.form.controls);
         this.acountService.addAccount({
             id: Math.random(),
-            firstName: this.firstName,
-            lastName: this.lastName,
-            email: this.email,
-            password: this.password,
-            gender: this.gender,
-            age: this.age
+            firstName: this.form.get('first name').value,
+            lastName: this.form.get('last name').value,
+            email: this.form.get('email').value,
+            password: this.form.get('password').value,
+            gender: this.form.get('gender').value,
+            age: this.form.get('age').value
         })
     }
 }

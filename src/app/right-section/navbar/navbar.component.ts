@@ -12,6 +12,6 @@ export class NavbarComponent {
   constructor(private searchService: searchService, private buttonService: ButtonService) { }
 
   menuBtnClicked() {
-    this.buttonService.buttonClicked.emit(true);
+    this.buttonService.buttonClicked.next(true);
   }
 }

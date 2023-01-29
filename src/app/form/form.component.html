@@ -35,9 +35,11 @@
             </div>
         </div>
 
-        <div class='field'>
+        <div class='field' [ngStyle]="{height: '80px'}">
             <span>Password</span>
-            <div>
+            <div [ngStyle]="{display: 'flex',
+            'flex-direction': 'column',
+            width: '316px'}">
                 <div class='auth-in-data'>
                     <input formControlName="password" class='auth-in pass' type='password'
                         placeholder='Enter your password'>
@@ -45,8 +47,18 @@
                         <img src="assets/images/Auths/passVisibilty.png" />
                     </a> -->
                 </div>
-                <span class="error" *ngIf="!form.get('password').valid && form.get('password').touched">please enter
-                    a valid password</span>
+                <span class="error"
+                    *ngIf="!form.get('password').valid && form.get('password').touched && form.get('password').errors['required']">
+                    please enter a password
+                </span>
+                <span class="error" *ngIf="!form.get('password').valid && form.get('password').touched && (form.get('password').errors['noUpperCase']
+                    || form.get('password').errors['noLowerCase']
+                    || form.get('password').errors['noDigit']
+                    || form.get('password').errors['noSpecialChar']
+                    || form.get('password').errors['lessThanEight'])">
+                    password must be at least 8 characters and contains at least one upper case, one lower case, one
+                    digit, one special character
+                </span>
             </div>
         </div>
 
