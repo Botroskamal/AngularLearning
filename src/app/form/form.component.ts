@@ -73,7 +73,7 @@ export class FormComponent implements OnInit {
 
     confirmPasswordValidation(control: FormControl): { [s: string]: boolean } {
         if (this.form && control.value !== this.form.get('password').value && control.value !== null && control.value !== "") {
-            return { passwordsDoesNotMatch: true }
+            return { 'passwordsDoesNotMatch': true }
         }
         return null;
     }
