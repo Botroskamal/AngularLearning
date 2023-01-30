@@ -1,0 +1,45 @@
+.container {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 20px;
+    background-color: #F5F4F6;
+
+    .accountCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: white;
+        padding: 20px;
+        width: 325px;
+        height: 270px;
+        border-radius: 15px;
+
+        .dataSection {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                font-size: 16px;
+                font-weight: 500;
+                font-family: sans-serif;
+                color: black;
+            }
+        }
+
+        .btn {
+            width: 100%;
+            height: 45px;
+            background-color: #A162F7;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 700;
+            border: 0;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+}

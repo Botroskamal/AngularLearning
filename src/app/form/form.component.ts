@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { AccountsService } from '../services/accounts.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-form',
@@ -24,7 +25,7 @@ export class FormComponent implements OnInit {
 
     errorMessage: string;
 
-    constructor(private http: HttpClient, private acountService: AccountsService) {
+    constructor(private http: HttpClient, private acountService: AccountsService, private router: Router) {
         this.firstName = '';
         this.lastName = '';
         this.email = '';
@@ -96,9 +97,14 @@ export class FormComponent implements OnInit {
             age: this.form.get('age').value
         }
         this.acountService.addAccount(account);
+        this.form.reset();
     }
 
     getUsers() {
         this.acountService.getAccounts();
+    }
+
+    goToAccounts() {
+        this.router.navigate(['/accounts']);
     }
 }

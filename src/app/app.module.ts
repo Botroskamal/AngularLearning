@@ -24,6 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CanDeactivateGaurd } from './signup/can-deactivate-guard.service';
 import { FormComponent } from './form/form.component';
 import { AccountsService } from './services/accounts.service';
+import { AccountsComponent } from './accounts/accounts.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { AccountsService } from './services/accounts.service';
     MainSectionComponent,
     FilterComponent,
     DashboardComponent,
+    AccountsComponent,
 
     HighlightDirective,
     ButtonHighlightDirective,
