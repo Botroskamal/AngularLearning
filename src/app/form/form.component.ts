@@ -1,5 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
 import { AccountsService } from '../services/accounts.service';
 
 @Component({
@@ -22,7 +24,7 @@ export class FormComponent implements OnInit {
 
     errorMessage: string;
 
-    constructor(private acountService: AccountsService) {
+    constructor(private http: HttpClient, private acountService: AccountsService) {
         this.firstName = '';
         this.lastName = '';
         this.email = '';
@@ -86,14 +88,30 @@ export class FormComponent implements OnInit {
     }
 
     onSubmit() {
-        this.acountService.addAccount({
-            id: Math.random(),
+        const account = {
             firstName: this.form.get('first name').value,
             lastName: this.form.get('last name').value,
             email: this.form.get('email').value,
             password: this.form.get('password').value,
             gender: this.form.get('gender').value,
             age: this.form.get('age').value
-        })
+        }
+        this.http.post('http://localhost:3000/signup', account)
+            .subscribe(res => console.log(res));
+
+
+        // this.acountService.addAccount({
+        //     id: Math.random(),
+        //     firstName: this.form.get('first name').value,
+        //     lastName: this.form.get('last name').value,
+        //     email: this.form.get('email').value,
+        //     password: this.form.get('password').value,
+        //     gender: this.form.get('gender').value,
+        //     age: this.form.get('age').value
+        // })
+    }
+
+    getUsers() {
+        this.http.get('http://localhost:3000/users').subscribe(res => console.log(res));
     }
 }
