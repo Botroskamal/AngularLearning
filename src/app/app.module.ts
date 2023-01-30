@@ -55,7 +55,7 @@ import { AccountsService } from './services/accounts.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CanDeactivateGaurd, AccountsService],
+  providers: [CanDeactivateGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

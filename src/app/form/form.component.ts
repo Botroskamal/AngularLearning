@@ -69,7 +69,6 @@ export class FormComponent implements OnInit {
         if (!minEight.test(control.value) && control.value !== "" && control.value !== null) {
             errors = { ...errors, 'lessThanEight': true }
         }
-        console.log(control.value);
         return errors;
     }
 
@@ -96,22 +95,10 @@ export class FormComponent implements OnInit {
             gender: this.form.get('gender').value,
             age: this.form.get('age').value
         }
-        this.http.post('http://localhost:3000/signup', account)
-            .subscribe(res => console.log(res));
-
-
-        // this.acountService.addAccount({
-        //     id: Math.random(),
-        //     firstName: this.form.get('first name').value,
-        //     lastName: this.form.get('last name').value,
-        //     email: this.form.get('email').value,
-        //     password: this.form.get('password').value,
-        //     gender: this.form.get('gender').value,
-        //     age: this.form.get('age').value
-        // })
+        this.acountService.addAccount(account);
     }
 
     getUsers() {
-        this.http.get('http://localhost:3000/users').subscribe(res => console.log(res));
+        this.acountService.getAccounts();
     }
 }
