@@ -19,4 +19,10 @@ export class AccountsService {
     getAccounts() {
         return this.http.get<{ [users: string]: Account[] }>('http://localhost:3000/users');
     }
+
+    deleteAccount(id: string) {
+        return this.http.post(`http://localhost:3000/delete/${id}`, {});
+    }
+
+    // Update Account
 }

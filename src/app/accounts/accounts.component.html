@@ -1,29 +1,39 @@
 <div class="container">
-    <div *ngFor="let account of accounts" class="accountCard">
-        <div class="dataSection">
-            <span>firstName: </span>
-            <span>{{account.firstName}}</span>
+    <div *ngIf="accounts.length < 1">
+        There are no accounts
+    </div>
+    <div *ngFor="let account of accounts; let i = index" class="card"
+        [ngClass]="{'updating': account['status'], 'notUpdating': !account['status']}">
+        <div class="data" [ngClass]="{'dataUpdating': account['status'], 'dataNotUpdating': !account['status']}">
+            <div class="dataSection">
+                <span>firstName: </span>
+                <span>{{account.firstName}}</span>
+            </div>
+            <div class="dataSection">
+                <span>lastName: </span>
+                <span>{{account.lastName}}</span>
+            </div>
+            <div class="dataSection">
+                <span>email: </span>
+                <span>{{account.email}}</span>
+            </div>
+            <div class="dataSection">
+                <span>password: </span>
+                <span>{{account.password}}</span>
+            </div>
+            <div class="dataSection">
+                <span>gender: </span>
+                <span>{{account.gender}}</span>
+            </div>
+            <div class="dataSection">
+                <span>age: </span>
+                <span>{{account.age}}</span>
+            </div>
+            <div>
+                <button (click)="onDelete(account._id)" class="btn">Delete</button>
+                <button (click)="onUpdateStatus(i)" class="btn">Update</button>
+            </div>
         </div>
-        <div class="dataSection">
-            <span>lastName: </span>
-            <span>{{account.lastName}}</span>
-        </div>
-        <div class="dataSection">
-            <span>email: </span>
-            <span>{{account.email}}</span>
-        </div>
-        <div class="dataSection">
-            <span>password: </span>
-            <span>{{account.password}}</span>
-        </div>
-        <div class="dataSection">
-            <span>gender: </span>
-            <span>{{account.gender}}</span>
-        </div>
-        <div class="dataSection">
-            <span>age: </span>
-            <span>{{account.age}}</span>
-        </div>
-        <button class="btn">Delete</button>
+        <app-update-form (formStatus)="onUpdateStatus($event)" [index]="i" [account]="account"></app-update-form>
     </div>
 </div>

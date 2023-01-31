@@ -15,7 +15,22 @@ export class AccountsComponent implements OnInit {
 
     ngOnInit(): void {
         this.accountsService.getAccounts().subscribe(accounts => {
-            this.accounts = accounts['users'];
+            this.accounts = [...new Set(accounts['users'])]
+            this.accounts.map((item: any) => {
+                item.status = false;
+                // ...accounts
+            })
         });
+    }
+
+    onDelete(id: string) {
+        this.accountsService.deleteAccount(id).subscribe(res => {
+            console.log(res);
+            this.accounts = res['users'];
+        });
+    } g
+
+    onUpdateStatus(i: number) {
+        this.accounts[i]['status'] = !this.accounts[i]['status'];
     }
 }
