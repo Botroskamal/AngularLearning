@@ -1,0 +1,85 @@
+<div class="updateSection" [ngClass]="{'inputsUpdating': account['status'], 'inputsNotUpdating': !account['status']}">
+    <form class="form" [formGroup]="form">
+        <div class='field'>
+            <span>First Name</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input formControlName="first name" class='auth-in' type='text' placeholder='Enter your First Name'>
+                </div>
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Last Name</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input formControlName="last name" class='auth-in' type='text' placeholder='Enter your Last Name'>
+                </div>
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Email</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input formControlName="email" class='auth-in' type='email' placeholder='Enter your email' email>
+                </div>
+            </div>
+        </div>
+
+        <div class='field' [ngStyle]="{height: '80px'}">
+            <span>Password</span>
+            <div [ngStyle]="{display: 'flex',
+                        'flex-direction': 'column',
+                        width: '316px'}">
+                <div class='auth-in-data'>
+                    <input formControlName="password" class='auth-in pass' type='password'
+                        placeholder='Enter your password'>
+                    <!-- <a style="z-index: 1;">
+                                    <img src="assets/images/Auths/passVisibilty.png" />
+                                </a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Confirm Password</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input formControlName="confirm password" class='auth-in pass' type='password'
+                        placeholder='Enter your confirmed password'>
+                    <!-- <a>
+                                    <img src="assets/images/Auths/passVisibilty.png" />
+                                </a> -->
+                </div>
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Gender</span>
+            <div class="radioChoices">
+                <label>
+                    <input formControlName="gender" type="radio" value="Male">
+                    Male
+                </label>
+                <label>
+                    <input formControlName="gender" type="radio" value="Female">
+                    Female
+                </label>
+            </div>
+        </div>
+
+        <div class='field'>
+            <span>Age</span>
+            <div>
+                <div class='auth-in-data'>
+                    <input formControlName="age" class='auth-in' type='text' placeholder='Enter your age'>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <button [disabled]="!changedFlag" (click)="onUpdate()" class="btn">Update</button>
+            <button (click)="onUpdateStatus(index)" class="btn">Cancel</button>
+        </div>
+    </form>
+</div>

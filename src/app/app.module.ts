@@ -25,6 +25,7 @@ import { CanDeactivateGaurd } from './signup/can-deactivate-guard.service';
 import { FormComponent } from './form/form.component';
 import { AccountsService } from './services/accounts.service';
 import { AccountsComponent } from './accounts/accounts.component';
+import { UpdateFormComponent } from './update-form/update-form.component';
 
 
 @NgModule({
@@ -41,14 +42,15 @@ import { AccountsComponent } from './accounts/accounts.component';
     FilterComponent,
     DashboardComponent,
     AccountsComponent,
+    SigninComponent,
+    SignupComponent,
+    FormComponent,
+    UpdateFormComponent,
 
     HighlightDirective,
     ButtonHighlightDirective,
     CustomIfDirective,
     NameHighlightDirective,
-    SigninComponent,
-    SignupComponent,
-    FormComponent
   ],
   imports: [
     BrowserModule,
