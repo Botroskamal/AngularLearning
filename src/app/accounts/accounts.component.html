@@ -1,10 +1,13 @@
-<div class="container">
-    <div *ngIf="accounts.length < 1">
+<div class="container" [ngStyle]="{'justify-content': isFetching ? 'center' : 'flex-start'}">
+    <div *ngIf="(accounts.length < 1 || errorFlag) && !isFetching">
         There are no accounts
     </div>
+    <div *ngIf="isFetching">
+        <app-spinner-loader></app-spinner-loader>
+    </div>
     <div *ngFor="let account of accounts; let i = index" class="card"
-        [ngClass]="{'updating': account['status'], 'notUpdating': !account['status']}">
-        <div class="data" [ngClass]="{'dataUpdating': account['status'], 'dataNotUpdating': !account['status']}">
+        [ngClass]="{'updating': isUpdating[i], 'notUpdating': !isUpdating[i]}">
+        <div class="data" [ngClass]="{'dataUpdating': isUpdating[i], 'dataNotUpdating': !isUpdating[i]}">
             <div class="dataSection">
                 <span>firstName: </span>
                 <span>{{account.firstName}}</span>
@@ -34,6 +37,7 @@
                 <button (click)="onUpdateStatus(i)" class="btn">Update</button>
             </div>
         </div>
-        <app-update-form (formStatus)="onUpdateStatus($event)" [index]="i" [account]="account"></app-update-form>
+        <app-update-form (accountUpdated)="onAccountUpdated($event, i)" (formStatus)="onUpdateStatus($event)"
+            [index]="i" [account]="account" [status]="isUpdating[i]"></app-update-form>
     </div>
 </div>

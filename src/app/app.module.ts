@@ -26,6 +26,7 @@ import { FormComponent } from './form/form.component';
 import { AccountsService } from './services/accounts.service';
 import { AccountsComponent } from './accounts/accounts.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
+import { SpinnerLoaderComponent } from './spinner-loader/spinner-loader.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { UpdateFormComponent } from './update-form/update-form.component';
     SignupComponent,
     FormComponent,
     UpdateFormComponent,
+    SpinnerLoaderComponent,
 
     HighlightDirective,
     ButtonHighlightDirective,
