@@ -36,7 +36,7 @@ export class AccountsComponent implements OnInit {
             console.log(res);
             this.accounts = res['users'];
         });
-    } g
+    }
 
     onUpdateStatus(i: number) {
         this.isUpdating[i] = !this.isUpdating[i];
