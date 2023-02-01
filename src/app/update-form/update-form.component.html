@@ -1,4 +1,4 @@
-<div class="updateSection" [ngClass]="{'inputsUpdating': account['status'], 'inputsNotUpdating': !account['status']}">
+<div class="updateSection" [ngClass]="{'inputsUpdating': status, 'inputsNotUpdating': !status}">
     <form class="form" [formGroup]="form">
         <div class='field'>
             <span>First Name</span>
@@ -32,26 +32,20 @@
             <div [ngStyle]="{display: 'flex',
                         'flex-direction': 'column',
                         width: '316px'}">
-                <div class='auth-in-data'>
-                    <input formControlName="password" class='auth-in pass' type='password'
+                <div class='auth-in-data pass'>
+                    <input formControlName="password" class='auth-in' [type]="isActive ? 'text' : 'password'"
                         placeholder='Enter your password'>
-                    <!-- <a style="z-index: 1;">
-                                    <img src="assets/images/Auths/passVisibilty.png" />
-                                </a> -->
+                    <img (click)="showPassword()" src="assets/images/Auths/passVisibilty.png" />
                 </div>
             </div>
         </div>
 
         <div class='field'>
             <span>Confirm Password</span>
-            <div>
-                <div class='auth-in-data'>
-                    <input formControlName="confirm password" class='auth-in pass' type='password'
-                        placeholder='Enter your confirmed password'>
-                    <!-- <a>
-                                    <img src="assets/images/Auths/passVisibilty.png" />
-                                </a> -->
-                </div>
+            <div class='auth-in-data pass'>
+                <input formControlName="confirm password" class='auth-in' [type]="confirmIsActive ? 'text' : 'password'"
+                    placeholder='Enter your confirmed password'>
+                <img (click)="showConfirmPassword()" src="assets/images/Auths/passVisibilty.png" />
             </div>
         </div>
 
@@ -78,8 +72,11 @@
             </div>
         </div>
         <div class="btns">
-            <button [disabled]="!changedFlag" (click)="onUpdate()" class="btn">Update</button>
+            <button [disabled]="!changedFlag || !form.valid" (click)="onUpdate(account['_id'])"
+                class="btn">Update</button>
             <button (click)="onUpdateStatus(index)" class="btn">Cancel</button>
         </div>
     </form>
 </div>
+
+<!-- [disabled]="!changedFlag || !form.valid" -->

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AccountsService } from "../services/accounts.service";
 
 @Component({
     selector: 'app-update-form',
@@ -8,14 +9,19 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class UpdateFormComponent implements OnInit {
     @Input() index: number;
-    @Input() account;
+    @Input() account: {};
+    @Input() status: boolean;
     @Output() formStatus = new EventEmitter<number>();
+    @Output() accountUpdated = new EventEmitter<{}>();
 
     changedFlag: boolean = false;
+    isActive: boolean = false;
+    confirmIsActive: boolean = false;
+    dataChanged: {};
 
     form: FormGroup;
 
-    constructor() { }
+    constructor(private accountsService: AccountsService) { }
 
     ngOnInit(): void {
         this.form = new FormGroup({
@@ -23,11 +29,16 @@ export class UpdateFormComponent implements OnInit {
             'last name': new FormControl(this.account['lastName'], Validators.required),
             'email': new FormControl(this.account['email'], [Validators.required, Validators.email]),
             'password': new FormControl(this.account['password'], [Validators.required, this.passwordValidation.bind(this)]),
-            // 'password': new FormControl(this.account[''], Validators.required),
-            'confirm password': new FormControl(this.account['confirm password'], [Validators.required, this.confirmPasswordValidation.bind(this)]),
+            'confirm password': new FormControl(this.account['password'], [Validators.required, this.confirmPasswordValidation.bind(this)]),
             'gender': new FormControl(this.account['gender'], Validators.required),
             'age': new FormControl(this.account['age'], [Validators.required, this.ageValidation])
         });
+
+        this.form.get('first name').valueChanges.subscribe(value => this.dataChanged = { ...this.dataChanged, firstName: value });
+        this.form.get('last name').valueChanges.subscribe(value => this.dataChanged = { ...this.dataChanged, lastName: value });
+        this.form.get('password').valueChanges.subscribe(value => this.dataChanged = { ...this.dataChanged, password: value });
+        this.form.get('age').valueChanges.subscribe(value => this.dataChanged = { ...this.dataChanged, age: value });
+        this.form.get('gender').valueChanges.subscribe(value => this.dataChanged = { ...this.dataChanged, gender: value });
 
         this.form.valueChanges.subscribe(value => this.changedFlag = true);
     }
@@ -71,11 +82,24 @@ export class UpdateFormComponent implements OnInit {
         return null;
     }
 
-    onUpdate() {
-
-    }
-
     onUpdateStatus(i: number) {
         this.formStatus.emit(this.index);
+    }
+
+    showPassword() {
+        this.isActive = !this.isActive;
+    }
+
+    showConfirmPassword() {
+        this.confirmIsActive = !this.confirmIsActive;
+    }
+
+    onUpdate(id: string) {
+        this.accountsService.updateAccount(id, this.dataChanged).subscribe(res => {
+            console.log(res);
+        });
+        this.account = { ...this.account, ...this.dataChanged };
+        this.formStatus.emit(this.index);
+        setTimeout(() => this.accountUpdated.emit(this.dataChanged), 680);
     }
 }
