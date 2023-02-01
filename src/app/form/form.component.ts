@@ -15,23 +15,11 @@ export class FormComponent implements OnInit {
 
     form: FormGroup;
 
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    confirmedPassword: string;
-    gender: string;
-    age: number;
-
     errorMessage: string;
+    isActive: boolean = false;
+    confirmIsActive: boolean = false;
 
     constructor(private http: HttpClient, private acountService: AccountsService, private router: Router) {
-        this.firstName = '';
-        this.lastName = '';
-        this.email = '';
-        this.password = '';
-        this.confirmedPassword = '';
-        this.gender = '';
         this.errorMessage = 'please enter your ';
     }
 
@@ -106,5 +94,13 @@ export class FormComponent implements OnInit {
 
     goToAccounts() {
         this.router.navigate(['/accounts']);
+    }
+
+    showPassword() {
+        this.isActive = !this.isActive;
+    }
+
+    showConfirmPassword() {
+        this.confirmIsActive = !this.confirmIsActive;
     }
 }

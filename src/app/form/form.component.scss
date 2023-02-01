@@ -37,13 +37,22 @@
                     }
                 }
 
-                .pass {
-                    background: url("../../assets/images/Auths/passVisibilty.png") no-repeat right;
-                    background-size: 20px 13px;
-                }
-
                 .ng-invalid.ng-touched {
                     border: 1px solid red;
+                }
+            }
+
+            .pass {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    z-index: 1;
+                    width: 20px;
+                    height: 13px;
+                    cursor: pointer;
+                    right: 10px;
+                    top: 10px;
                 }
             }
 
